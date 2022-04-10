@@ -13,7 +13,9 @@
                     <a class="nav-link {% if page == 'whitelist' %}active{% endif %} link-off" href="{{ site_url }}/whitelist">Whitelist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#store">Nossa Loja</a>
+                    {% if page == 'index' %}
+                    <a class="nav-link" href="#store">Nossa Loja</a> {% else %}
+                    <a class="nav-link" href="{{ site_url }}/#store">Nossa Loja</a> {% endif %}
                 </li>
             </ul>
         </div>
