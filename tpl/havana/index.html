@@ -1,0 +1,61 @@
+{% extends 'includes/base.html' %} {% block content %}
+
+<section class="info-sec mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="bro-armed d-md-block d-sm-inline-flex mx-sm-auto mx-md-auto">
+                    <div class="bro"></div>
+                </div>
+            </div>
+
+            <div class="col-md-7 info-text text-center mt-5">
+                <h1>O melhor do Roleplay</h1>
+                <span>Viva um mundo totalmente imersivo, onde você consegue ser o que quiser!</span>
+                <p>
+                    <a href="{{ site_url }}/whitelist" type="button" class="btn btn-success btn-lg mt-5">Fazer Whitelist</a>
+                    <a href="#socials" class="position-relative socials">Nosso Social</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="socials-sec bg-warning">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 px-5 pt-3 pb-5 text-center mt-5 socials-text">
+                <h2><u>Social</u> Media</h2>
+                <span>Mantenha-se conectado conosco em nossas principais redes sociais, assim você não perde nenhuma novidade e nem notícia! Mante-se atualizado é a ideia né!?</span>
+            </div>
+
+            <div class="col-md-7 pb-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box-media text-center pt-3 pb-1">
+                            <i class="fa-brands fa-discord"></i>
+                            <p class="mt-3">Discord</p>
+                            <a href="https://discord.gg/TUG3eX9TgY" target="_blank" type="button" class="btn btn-success mb-2">Entrar</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box-media text-center pt-3 pb-1">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p class="mt-3">Instagram</p>
+                            <a href="https://www.instagram.com/havana.roleplay/" target="_blank" type="button" class="btn btn-success mb-2">Acessar</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box-media text-center pt-3 pb-1">
+                            <i class="fa-brands fa-tiktok"></i>
+                            <p class="mt-3">TikTok</p>
+                            <a href="https://www.tiktok.com/@havanaroleplay_" target="_blank" type="button" class="btn btn-success mb-2">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

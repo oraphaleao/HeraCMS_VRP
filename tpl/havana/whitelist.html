@@ -1,0 +1,228 @@
+{% extends 'includes/base.html' %} {% block content %}
+
+<section class="whitelist-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form onsubmit="false" method="post" id="form-whitelist">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            {{ lang.whitelist.first_box.title }} <u class="float-end"><i class="fa-solid fa-circle-info"></i></u>
+                        </div>
+
+                        <div class="card-body">
+                            <label for="name-person" class="form-label">Nome e Sobrenome do seu Personagem</label>
+                            <div class="input-group input-group-lg mb-3">
+                                <span class="input-group-text" id="namePerson"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" class="form-control" id="name-person" name="name-person" aria-describedby="namePerson" maxlength="64">
+                            </div>
+
+                            <label for="steam-hex" class="form-label">{{ lang.whitelist.first_box.label }}</label>
+                            <div class="input-group input-group-lg mb-3">
+                                <span class="input-group-text" id="hexSteam"><i class="fa-brands fa-steam"></i></span>
+                                <input type="text" class="form-control" id="steam-hex" name="steam-hex" aria-describedby="hexSteam">
+                            </div>
+                            <div id="hexSteam d-block" class="form-text">{{ lang.whitelist.first_box.text_input|raw }}</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            Questionário <u class="float-end"><i class="fa-solid fa-clipboard-list"></i></u>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é VDM?</label>
+                                <select class="form-select form-select-lg mb-3" id="vdm" name="vdm">
+                                <option selected></option>
+                                <option value="1">Vida após a morte</option>
+                                <option value="2">Utilizar veículo para matar alguém, é totalemente proibido matar alguem com o veículo</option>
+                                <option value="3">Vir de cima da montanha e se jogar com o veículo</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é RDM?</label>
+                                <select class="form-select form-select-lg mb-3" name="rdm">
+                                <option selected></option>
+                                <option value="1">É quando um jogador mata alguém sem nenhum motivo</option>
+                                <option value="2">Matar alguém porque te xingou</option>
+                                <option value="3">Um modelo especial de veículo dentro do servidor</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é METAGAMING?</label>
+                                <select class="form-select form-select-lg mb-3" name="meta">
+                                <option selected></option>
+                                <option value="1">É o nome de um time de e-sports dentro da cidade</option>
+                                <option value="2">É o RP de super héroi</option>
+                                <option value="3">Consiste em você utilizar de meios externos para obter informações dentro do jogo</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é POWERGAMING?</label>
+                                <select class="form-select form-select-lg mb-3" name="power">
+                                <option selected></option>
+                                <option value="1">Jogar ouvindo rock</option>
+                                <option value="2">Você jogar de forma super forte</option>
+                                <option value="3">Abusar da física do jogo</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é COMBAT LOGGING?</label>
+                                <select class="form-select form-select-lg mb-3" name="combat-logging">
+                                <option selected></option>
+                                <option value="1">Deslogar no meio de uma ação e não voltar</option>
+                                <option value="2">É combater o uso de calça legging dentro do servidor</option>
+                                <option value="3">Combater o deslog dentro do jogo</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é DARK RP?</label>
+                                <select class="form-select form-select-lg mb-3" name="dark">
+                                <option selected></option>
+                                <option value="1">É o RP no escuro</option>
+                                <option value="2">Fazer RP de assédio, racismo, estupro etc</option>
+                                <option value="3">RP de amor</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é SAFE-ZONE?</label>
+                                <select class="form-select form-select-lg mb-3" name="safe">
+                                <option selected></option>
+                                <option value="1">São lugares onde não se pode roubar ou matar</option>
+                                <option value="2">Áreas onde você só pode falar safe antes de todas as frases</option>
+                                <option value="3">RP de ser seguro e não falar com desconhecidos</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é Forçar RP?</label>
+                                <select class="form-select form-select-lg mb-3" name="to-force">
+                                <option selected></option>
+                                <option value="1">São lugares onde não se pode roubar ou matar</option>
+                                <option value="2">Chamar policial para uma área apenas para trocar tiro</option>
+                                <option value="3">É ficar irritando uma pessoa</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é ANTI RP?</label>
+                                <select class="form-select form-select-lg mb-3" name="anti-rp">
+                                <option selected></option>
+                                <option value="1">Protestar contra o RP na cidade</option>
+                                <option value="2">É você sair do seu personagem</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que é AMOR A VIDA?</label>
+                                <select class="form-select form-select-lg mb-3" name="love-life">
+                                <option selected></option>
+                                <option value="1">Deslogar no meio da ação</option>
+                                <option value="2">É valorizar a sua vida como se ela fosse única</option>
+                                <option value="3">Fingir que não está acontecendo uma ação e passar por ela normalmente</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">Com quantas advertências pode resultar em Banimento?</label>
+                                <select class="form-select form-select-lg mb-3" name="warnings">
+                                <option selected></option>
+                                <option value="1">2</option>
+                                <option value="2">4</option>
+                                <option value="3">3</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">O que fazer se você ver alguém abusando de um bug?</label>
+                                <select class="form-select form-select-lg mb-3" name="bug">
+                                <option selected></option>
+                                <option value="1">Chamar algum ADM pelo discord</option>
+                                <option value="2">Ir até ele e repreender saindo completamente do personagem</option>
+                                <option value="3">Ir até ele e abusar do BUG para testar</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">Caso esteja em alguma ação e você acha que seu adversário fez algo errado o que você deve fazer?</label>
+                                <select class="form-select form-select-lg mb-3" name="wrong">
+                                <option selected></option>
+                                <option value="1">Infrijo a regra também para ele não ter mais vantagem que eu</option>
+                                <option value="2">Deslogo porque não é justo eu seguir regra e ele não</option>
+                                <option value="3">Gravaria e depois iria mandar o vídeo para algum ADM</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">Você está em alta velocidade, bate o veiculo, seu personagem é arremessado porém o mesmo levanta como se nada tivesse acontecido. O que você faria?</label>
+                                <select class="form-select form-select-lg mb-3" name="high-speed">
+                                <option selected></option>
+                                <option value="1">Saio normalmente afinal é apenas um jogo</option>
+                                <option value="2">Me deito e chamo o paramédico pois estou machucado</option>
+                                <option value="3">Finjo o minimo de RP possivel e prossigo com o meu destino</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">Digamos que você está sendo abordado pela policia ou bandido, mas ele não disse que cortou sua comunicação. O que você faria?</label>
+                                <select class="form-select form-select-lg mb-3" name="approached">
+                                <option selected></option>
+                                <option value="1">Nada, minha comunicação é automaticamente cortada nesses casos</option>
+                                <option value="2">Peço ajuda pelo discord</option>
+                                <option value="3">Isso não existe, chamo reforço pelo rádio</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">Você está em uma perseguição, mas você perde o controle e bate o carro e ele quebra. O que você faria?</label>
+                                <select class="form-select form-select-lg mb-3" name="pursuit">
+                                <option selected></option>
+                                <option value="1">Peço 2 altos para chamar um mecanico</option>
+                                <option value="2">Me rendo pois me machuquei e não consigo fugir</option>
+                                <option value="3">Se o carro continuar andando, prossigo minha fuga</option>
+                            </select>
+                            </div>
+                            <div class="form-select-area mb-3">
+                                <label class="form-label">Após finalizado o que fazer?</label>
+                                <select class="form-select form-select-lg mb-3" name="died">
+                                <option selected></option>
+                                <option value="1">Volto ao local que morri e me vingo de quem me matou</option>
+                                <option value="2">Entro em outra facção e meses depois volto para me vingar</option>
+                                <option value="3">Seguir o RP, não lembrando dos últimos 15 minutos</option>
+                            </select>
+                            </div>
+
+                            {% if hcaptcha_enabled %}
+                            <div class="mb-4 text-center">
+                                <div class="h-captcha" data-theme="dark" data-sitekey="{{ hcaptcha_public_key }}"></div>
+                            </div>
+                            {% endif %}
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success btn-sm" type="submit" id="confirm-button">Validar Whitelist</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </form>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Nossa Whitelist <u class="float-end"><i class="fa-solid fa-person-circle-exclamation"></i></u>
+                    </div>
+
+                    <div class="card-body">
+                        Nessa área, você nos conta um pouco do seu conhecimento acerca de <b>Roleplay</b>. A partir disso, nosso robô verifica se você está realmente apto a ser parte da nossa família.
+                    </div>
+                </div>
+
+                <div class="card warning">
+                    <div class="card-header text-danger">
+                        Aviso <u class="float-end"><i class="fa-solid fa-triangle-exclamation"></i></u>
+                    </div>
+
+                    <div class="card-body">
+                        Se caso você não passar em nossa <u>Whitelist</u>, não esquente a cabeça, você poderá entrar em contato com nossa equipe, para que possa haver uma solução e liberar novamente. Assim, você poderá realizar novamente. Chances de milhões
+                        né?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
