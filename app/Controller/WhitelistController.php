@@ -120,18 +120,21 @@ class WhitelistController {
                }
 
                if (!$error && $countAnswers >= $params['whitelist_count_hits']) {
-                    if (Model\Whitelist::verifyStatus($_POST['steam-hex'])) {
-                         HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você já está habilitado a entrar em nossa cidade.']);
-                    } elseif (Model\Whitelist::verifyBlocked($_POST['steam-hex'])) {
-                         HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você está bloqueado a fazer nossa Whitelist. Contate nosso Suporte no Discord.']);
-                    } else {
-                         Model\Whitelist::updateWhitelist($_POST['steam-hex']);
-                         Model\Whitelist::insertWhitelist($_POST['name-person'], $_POST['steam-hex'], $countAnswers);
+                    try {
+                         $hex = Model\Whitelist::select()->where('steam', QB::EQ, $_POST['steam-hex'])->find();
 
+                         if ($hex->getSuccess() == '1') {
+                              HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você já está habilitado a entrar em nossa cidade.']);
+                         } elseif ($hex->getBlocked() == '1') {
+                              HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você está bloqueado a fazer nossa Whitelist. Contate nosso Suporte no Discord.']);
+                         }
+                    } catch (\RangeException $ex) {
+                         Model\Whitelist::insertWhitelist($_POST['name-person'], $_POST['steam-hex'], $countAnswers, 'success');
+     
                          HeraCMS\App::convertJSON(['status' => true, 'message' => 'Sua Whitelist foi liberada! Informe ao suporte para setagem no Discord.']);
                     }
                } else {
-                    Model\Whitelist::insertBlockedWhitelist($_POST['steam-hex'], $countAnswers, $_POST['name-person']);
+                    Model\Whitelist::insertWhitelist($_POST['steam-hex'], $countAnswers, $_POST['name-person'], 'blocked');
                     HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você não conseguiu passar em nossa Whitelist e ela foi bloqueada. Comunique o suporte.']);
                }
           }
