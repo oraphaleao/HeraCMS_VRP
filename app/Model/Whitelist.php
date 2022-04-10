@@ -12,7 +12,7 @@ class Whitelist
 
 	public static function SqlXS() {
 		return new SqlXS\XsInfo('whitelist', 'id');
-	}
+	} 
 	
 	/**
      * Here we gonna verify if the Steam has success
