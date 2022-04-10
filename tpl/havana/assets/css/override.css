@@ -272,6 +272,7 @@ a.nav-link.active::before {
 
 .socials-sec.bg-warning {
     color: #ffffff;
+    overflow: hidden;
     background-image: linear-gradient(to left, #ef4136, #f7941d)!important;
     animation-name: socials_start;
     animation-fill-mode: both;
@@ -565,6 +566,54 @@ a.nav-link.active::before {
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(0.63, 0.03, 0.73, 0.99);
     transition: all .9s cubic-bezier(0.63, 0.03, 0.73, 0.99);
+}
+
+
+/* Store Section */
+
+.store-sec a {
+    margin: 0 0 0 auto;
+    height: 37px;
+    margin-top: 7px;
+    padding: 5px 14px;
+    border: 1px solid #2C2B31;
+    color: #E4E4E2;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+.store-sec a i {
+    margin: 0 0 0 5px;
+}
+
+.store-sec a:hover {
+    background: #17151B;
+    border: 1px solid #45444A;
+    color: #ee4236;
+}
+
+.store-sec .box-store {
+    background: linear-gradient(338.93deg, rgba(255, 255, 255, 0.056) -7.23%, rgba(255, 255, 255, 0.056) -7.22%, rgba(255, 255, 255, 0.028) 5.45%, rgba(255, 255, 255, 0.004) 18.4%, rgba(255, 255, 255, 0) 46.85%), rgba(196, 196, 196, 0.04);
+    backdrop-filter: blur(15px);
+    color: #fff;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    min-height: 320px;
+}
+
+.store-sec .box-store img {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.michael {
+    background-image: url('../img/Michael.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 
