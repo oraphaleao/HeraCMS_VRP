@@ -127,6 +127,9 @@ class WhitelistController {
                               HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você já está habilitado a entrar em nossa cidade.']);
                          } elseif ($hex->getBlocked() == '1') {
                               HeraCMS\App::convertJSON(['status' => false, 'message' => 'Você está bloqueado a fazer nossa Whitelist. Contate nosso Suporte no Discord.']);
+                         } else {
+                              Model\Whitelist::updateWhitelist($_POST['steam-hex']);
+                              HeraCMS\App::convertJSON(['status' => true, 'message' => 'Sua Whitelist foi liberada! Informe ao suporte para setagem no Discord.']);
                          }
                     } catch (\RangeException $ex) {
                          Model\Whitelist::insertWhitelist($_POST['name-person'], $_POST['steam-hex'], $countAnswers, 'success');

@@ -21,7 +21,7 @@ class Whitelist
      * @param {int} We pick the the number of hits
      */
     public static function insertWhitelist($name, $hex, $hits, $type) {
-        //Here we update the Whitelist of User
+        // Here we update the Whitelist of User
         $user = VrpInfos::ByID($hex);
         $user->setWhitelist('1');
 
@@ -43,5 +43,19 @@ class Whitelist
                 'blocked' => '1'
             ]);
         }
+    }
+
+    /**
+     * Here we gonna update the Whitelist of Steam Hex
+     * @param {string} Here we gonna pick the Steam Hex
+     */
+    public static function updateWhitelist($hex) {
+        // Here we update the Whitelist of User
+        $user = VrpInfos::ByID($hex);
+        $user->setWhitelist('1');
+
+        $white = static::select()->where('steam', QB::EQ, $hex)->find();
+        
+        return $white->setSuccess('1');
     }
 }
